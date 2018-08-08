@@ -1,0 +1,72 @@
+Store
+
+where the entire state of your application live. This is the first main benefit of using Redux. 
+- Manage the state of all components in one place the STORE. 
+
+- method to get the current state of our application, 
+- subscribe to changes or update the existing state of our application. 
+
+This is great because now we dont have to pass down from the parent component to deeply nested child components through props. So anytime a component needs data it can ask the store and the store will provide it with the data.
+
+
+createStore method will allow us to create the store but we are not done yet. This method needs a special argument and this argument goes by a special name called the 'REDUCER'. 
+
+Actions
+
+plain Javascript objects with a type property. This type property describes the EVENT that is taking place in the application. This event can be anything from incrementing a counter to adding items in an array. These actions help us track the different events that are happening in our application.
+
+Structure of an action:
+
+{
+	type: 'EVENT_NAME'
+}
+
+
+An action can have any number of properties but it MUST HAVE a TYPE property. So an action can include data like so 
+
+{
+	type: 'ADD_ITEM',
+	name: 'Redux'	
+}
+
+In this example, the event name is 'ADD_ITEM' and the data is the name property with a value of 'Redux'. 
+
+===> Add an item called Redux
+
+Now another important term that is used alongside actions is called DISPATCH. When we say 'DISPATCH an Action' 
+===> 
+call dispatch method which is inside the store object with an action. 
+
+store.dispatch(action)
+
+
+postReducer.js, you see whenever we dispatch an action, this ACTION with its type property is RECEIVED by something called the reducer.
+
+Reducer
+
+a function that takes the current state and an action that was dispatched as its parameters
+
+returns the new state 
+
+state, action ---> reducer:function --> new state 
+
+action: store.dispatch(action) 
+
+state: current state
+
+-------------------------------------------------------------
+
+reducer is just a function that gives you new state for your components 
+
+
+How does the reducer go about producing the new state the application? 
+
+
+first: checks which TYPE of action was dispatched and based on it returns the new state. 
+
+
+
+
+
+
+
